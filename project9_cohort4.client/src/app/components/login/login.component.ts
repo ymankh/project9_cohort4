@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,14 +25,18 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) return;
+    console.log("This is working.");
 
     this.authService.login(this.loginForm.value).subscribe(
-      () => {
+      (data) => {
+        console.log(data);
+
         this.router.navigate(['/']);
       },
       (error) => {
         this.errorMessage = 'Invalid email or password';
+        console.log(error);
+
       }
     );
   }

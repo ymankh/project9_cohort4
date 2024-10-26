@@ -9,7 +9,7 @@ import { User } from '../../interfaces/auth';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://your-api-url/api/auth';
+  private apiUrl = 'http://localhost:5011/api/Auth';
   private jwtHelper = new JwtHelperService();
   private currentUserSubject = new BehaviorSubject<User | null>(null);
 
@@ -39,11 +39,9 @@ export class AuthService {
   }
 
   login(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, data).pipe(
-      tap((response: any) => {
-        this.storeToken(response.token);
-      })
-    );
+
+    debugger;
+    return this.http.post(`${this.apiUrl}/login`, data);
   }
 
   logout(): void {
