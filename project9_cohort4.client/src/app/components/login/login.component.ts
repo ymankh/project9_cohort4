@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import iziToast, { IziToast } from 'izitoast';
 
 
 @Component({
@@ -27,17 +28,6 @@ export class LoginComponent {
   onSubmit(): void {
     console.log("This is working.");
 
-    this.authService.login(this.loginForm.value).subscribe(
-      (data) => {
-        console.log(data);
-
-        this.router.navigate(['/']);
-      },
-      (error) => {
-        this.errorMessage = 'Invalid email or password';
-        console.log(error);
-
-      }
-    );
+    this.authService.login(this.loginForm.value);
   }
 }
