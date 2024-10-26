@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { GetByIdComponent } from './batool/get-by-id/get-by-id.component';
 import { AddAnimalComponent } from './batool/add-animal/add-animal.component';
 import { UpdateInfoComponent } from './batool/update-info/update-info.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RegisterComponent } from './components/register/register.component';
     GetByIdComponent,
     AddAnimalComponent,
     UpdateInfoComponent,
-    RegisterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     FormsModule,
